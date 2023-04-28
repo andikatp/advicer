@@ -6,13 +6,15 @@ import 'package:advice/presentation/screens/advice/widgets/custom_error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../injection.dart';
+
 class AdviceScreenWrapperProvider extends StatelessWidget {
   const AdviceScreenWrapperProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AdviceCubit(),
+      create: (context) => sl<AdviceCubit>(),
       child: const AdviceScreen(),
     );
   }

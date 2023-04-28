@@ -12,9 +12,9 @@ const String _cacheErrorMessage =
 const String _generalErrorMessage = 'Please check your connection!';
 
 class AdviceCubit extends Cubit<AdviceState> {
-  AdviceCubit() : super(AdviceInitial());
+  AdviceCubit({required this.adviceUsecase}) : super(AdviceInitial());
+  final AdviceUsecase adviceUsecase;
 
-  final AdviceUsecase adviceUsecase = AdviceUsecase();
   void advicerRequestEvent() async {
     emit(AdviceLoadingState());
     final result = await adviceUsecase.getAdvice();
